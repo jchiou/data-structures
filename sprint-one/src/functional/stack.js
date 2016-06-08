@@ -15,6 +15,7 @@ var Stack = function() {
     if (counter !== 0) {
       delete storage[counter];
       counter--;
+      return storage[counter];
     }
   };
 
