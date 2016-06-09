@@ -21,7 +21,11 @@ queueMethods.enqueue = function(val) {
 };
 
 queueMethods.dequeue = function() {
-
+  if (this.counter !== 0) {
+    var first = this.storage.shift();
+    this.counter--;
+    return first;
+  }
 };
 
 
