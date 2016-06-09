@@ -43,7 +43,6 @@ var Queue = function() {
 
   someInstance.dequeue = function() {
     if (storage.length !== 0) {
-      //storage = storage.slice(1);
       return storage.shift();
     }
   };
