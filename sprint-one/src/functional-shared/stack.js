@@ -18,8 +18,12 @@ stackMethods.push = function(value) {
   this.storage.push(value);
   this.counter++;
   return this.counter;
-}
+};
 
 stackMethods.pop = function() {
-  return;
-}
+  if (this.storage.length !== 0) {
+    var last = this.storage.pop();
+    this.counter--;
+  }
+  return last;
+};
