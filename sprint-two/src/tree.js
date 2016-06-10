@@ -12,24 +12,26 @@ var treeMethods = {};
 
 treeMethods.addChild = function(value) {
   this.children.push(Object.create(Tree(value)));
+  this.value = value;
 };
 
 treeMethods.contains = function(target) {
-  var result = false;
-
   if (this.value === target) {
-    result = true;
+    return true;
   }
 
-  if (this.children.length > 0) {
-    debugger;
-    for (var i = 0; i < this.children.length; i++) {
-      var theChild = this.children[i].children;
-      result = this.contains(theChild);
-    }
+  // if (this.children.length > 0) {
+  //   for (var i = 0; i < this.children.length; i++) {
+  //     var theChild = this.children[i];
+  //     this.contains(theChild);
+  //   }
+  // }
+
+  if (this.children.length === 0) {
+    return false;
   }
 
-  return result;
+  return false;
 };
 
 
