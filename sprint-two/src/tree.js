@@ -1,8 +1,6 @@
 var Tree = function(value) {
   var newTree = Object.create(treeMethods);
   newTree.value = value;
-
-  // your code here
   newTree.children = []; 
 
   return newTree;
@@ -16,25 +14,30 @@ treeMethods.addChild = function(value) {
 };
 
 treeMethods.contains = function(target) {
-  if (this.value === target) {
-    return true;
-  }
 
-  // if (this.children.length > 0) {
-  //   for (var i = 0; i < this.children.length; i++) {
-  //     var theChild = this.children[i];
-  //     this.contains(theChild);
+  //var child = this;
+
+  // if (this.value === target) {
+  //   return true;
+  // }
+
+  // if (child.children.length !== undefined) {
+  //   for (var i = 0; i < child.children.length; i++) {
+  //     results = this.contains(target, child.children[i]);
+  //     if (this.contains(target, child.children[i]) === true) {
+  //       return true;
+  //     }
   //   }
   // }
 
-  if (this.children.length === 0) {
-    return false;
-  }
+  //if (child.children.length !== undefined) {
+  // return this.children.some(function(child) {
+  //   return child.contains(target);
+  // });
 
-  return false;
+  return this.value === target ? true : this.children.some((child) => child.contains(target));
+
 };
-
-
 
 /*
  * Complexity: What is the time complexity of the above functions?
