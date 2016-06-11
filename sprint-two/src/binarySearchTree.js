@@ -14,20 +14,17 @@ var binaryTreeMethods = {};
 
 binaryTreeMethods.insert = function(value) {
   this.storage.push(value);
-  // return this.value > value ? this.left = BinarySearchTree(value) : this.right = BinarySearchTree(value);
-  if (this.value > value) {
-    if (this.left === null) {
-      this.left = BinarySearchTree(value);
-    } else {
-      this.left.insert(value);
-    }
+  
+  if (this.value > value && this.left === null) {
+    this.left = BinarySearchTree(value);
+  } else if (this.value > value && this.left !== null) {
+    this.left.insert(value);
+  } else if (this.right === null) {
+    this.right = BinarySearchTree(value);
   } else {
-    if (this.right === null) {
-      this.right = BinarySearchTree(value);
-    } else {
-      this.right.insert(value);
-    }
+    this.right.insert(value);
   }
+
 };
 
 binaryTreeMethods.contains = function(value) {
