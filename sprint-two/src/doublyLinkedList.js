@@ -9,14 +9,20 @@ var DoublyLinkedList = function(value) {
       list.head = node;
       list.tail = node;
     } else {
+      var previous = list.head;
       list.head = node;
+      list.head.next = previous;
       list.tail.previous = list.head;
     }
   };
 
   list.removeTail = function() {
     var current = list.tail;
+    if (list.tail.previous === null) {
+      return list.tail.value;
+    }
     list.tail = list.tail.previous;
+    list.tail.next = null;
     return list.tail.previous;
   };
 
